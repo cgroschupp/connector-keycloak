@@ -34,3 +34,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
+      - name: Create GitHub Release and upload JAR
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/checkout/*.jar
+            !target/checkout/*-sources.jar
+            !target/checkout/*-javadoc.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
