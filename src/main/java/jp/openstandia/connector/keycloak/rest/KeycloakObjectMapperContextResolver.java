@@ -35,8 +35,8 @@ import jakarta.ws.rs.ext.Provider;
  * {@code Class.getGenericInterfaces()}. Lambda proxies do not carry reifiable generic type
  * information, causing:
  *   RESTEASY003920: Unable to instantiate ContextResolver
- *   -> NullPointerException: Cannot invoke "Class.getInterfaces()" because "root" is null
- *
+ * -&gt; NullPointerException: Cannot invoke "Class.getInterfaces()" because "root" is null
+ * 
  * By providing a concrete class, RESTEasy can correctly determine that this resolver
  * handles ObjectMapper and will call getContext(ObjectMapper.class) when
  * JacksonJsonProvider.locateMapper() fires.
